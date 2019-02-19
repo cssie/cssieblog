@@ -1,0 +1,33 @@
+language: node_js
+node_js: stable
+cache:
+  directories:
+  - node_modules
+install:
+- npm install
+script:
+- hexo clean
+- hexo g
+after_script:
+- git clone https://${GH_REF} .deploy_git
+- cd .deploy_git
+- git checkout gh-pages
+- cd ../
+- mv .deploy_git/.git/ ./public/
+- cd ./public
+- git config user.name "cssie"
+- git config user.email "1411674262@qq.com"
+- git add .
+- git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+- git push --force --quiet "https://${HEXO_TOKEN}@${GH_REF}"
+branches:
+  only:
+  - master
+env:
+  global:
+  - GH_REF: github.com/cssie/cssieblog.git
+notifications:
+  email:
+  - 1411674262@qq.com
+  on_success: change
+  on_failure: always
