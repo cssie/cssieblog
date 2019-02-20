@@ -9,6 +9,7 @@ script:
 - hexo clean
 - hexo g
 after_script:
+- echo 是否执行了ci设置
 - git clone https://${GH_REF} .deploy_git
 - cd .deploy_git
 - git checkout gh-pages
