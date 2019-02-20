@@ -16,3 +16,4 @@ csslint_error.html
 !gb.css
 .vscode
 yarn.lock
+db.json
