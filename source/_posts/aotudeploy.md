@@ -151,7 +151,7 @@ hexo d / hexo deploy
     - mv .deploy_git/.git/ ./public/
     - cd ./public
     - git config user.name "cssie"
-    - git config user.email "1411674262@qq.com"
+    - git config user.email <youremail>
     - git add .
     - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
     - git push --force --quiet "https://${HEXO_TOKEN}@${GH_REF}"
@@ -163,7 +163,7 @@ hexo d / hexo deploy
     - GH_REF: github.com/cssie/cssieblog.git
     notifications:
     email:
-    - 1411674262@qq.com
+    - <youremail>
     on_success: change
     on_failure: always
 ```
