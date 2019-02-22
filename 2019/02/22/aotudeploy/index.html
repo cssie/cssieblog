@@ -11,13 +11,13 @@
 <meta name="keywords" content="前端,自动化构建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个简易的前端自动化构建例子">
-<meta property="og:url" content="https://cssie.github.io/cssieblog/2019/02/21/aotudeploy/index.html">
+<meta property="og:url" content="https://cssie.github.io/cssieblog/2019/02/22/aotudeploy/index.html">
 <meta property="og:site_name" content="Cssie&#39;s blog">
 <meta property="og:description" content="写在前面前阵子一直在赶项目，写需求，沉淀的东西大多是跟业务相关。团队写需求时一般使用 athena + gitlab CI 自动化生成模板，自动化检测代码格式，自动化打包和自动化部署到服务器，全自动一条龙服务。这对于之前都是单枪匹马的我来说，是套极具诱惑力的流程工具。趁着现在没什么需求，我便借着搭建博客的例子来学习如何搭建简易版的自动化构建工具。同时搭建好的博客也更督促了自己 2019 年多点">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img14.360buyimg.com/ling/jfs/t1/18594/12/7856/275573/5c6e5d03E9e72a835/7833011da0df6d83.jpg">
 <meta property="og:image" content="https://img10.360buyimg.com/ling/jfs/t1/7239/38/15203/462920/5c6e693fE4f4a4ad0/8637f24a392cd503.jpg">
-<meta property="og:updated_time" content="2019-02-21T13:19:48.989Z">
+<meta property="og:updated_time" content="2019-02-22T07:28:55.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个简易的前端自动化构建例子">
 <meta name="twitter:description" content="写在前面前阵子一直在赶项目，写需求，沉淀的东西大多是跟业务相关。团队写需求时一般使用 athena + gitlab CI 自动化生成模板，自动化检测代码格式，自动化打包和自动化部署到服务器，全自动一条龙服务。这对于之前都是单枪匹马的我来说，是套极具诱惑力的流程工具。趁着现在没什么需求，我便借着搭建博客的例子来学习如何搭建简易版的自动化构建工具。同时搭建好的博客也更督促了自己 2019 年多点">
@@ -32,6 +32,7 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/cssieblog/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 </head>
 </html>
 <body>
@@ -70,8 +71,8 @@
       <div class="outer">
         <section id="main"><article id="post-aotudeploy" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/cssieblog/2019/02/21/aotudeploy/" class="article-date">
-  <time datetime="2019-02-21T13:19:48.989Z" itemprop="datePublished">2019-02-21</time>
+    <a href="/cssieblog/2019/02/22/aotudeploy/" class="article-date">
+  <time datetime="2019-02-22T07:28:55.306Z" itemprop="datePublished">2019-02-22</time>
 </a>
     
   <div class="article-category">
@@ -95,6 +96,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>前阵子一直在赶项目，写需求，沉淀的东西大多是跟业务相关。团队写需求时一般使用 athena + gitlab CI 自动化生成模板，自动化检测代码格式，自动化打包和自动化部署到服务器，全自动一条龙服务。这对于之前都是单枪匹马的我来说，是套极具诱惑力的流程工具。趁着现在没什么需求，我便借着搭建博客的例子来学习如何搭建简易版的自动化构建工具。同时搭建好的博客也更督促了自己 2019 年多点沉淀，多点输出，多发博客。</p>
+<a id="more"></a>
 <h2 id="从哪里入手"><a href="#从哪里入手" class="headerlink" title="从哪里入手"></a>从哪里入手</h2><p>作为一个简单的示例，示例所要实现的核心功能是 – 当把代码 push 到 github 远程仓库时，自动打包代码并将部署到服务器生成博客。</p>
 <ol>
 <li>申请服务器，寻找博客代码的承载体。<br> 我们新建好一个 github 远程仓库，并将代码托管到仓库的 gh-pages 分支，之后 github 就会帮我们生成静态网页了。因此我们可以省下申请服务器，申请域名，解析域名，搭建服务器等一系列操作了。这也是为了简化我们的操作，毕竟我们的重心是自动化构建流程。</li>
@@ -144,11 +146,11 @@
 </ol>
 <h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>到这里我们已经完成了一开始的诉求，然而这还远远只是一个开头。通过这个例子我们还可以去拓展很多，譬如如果我们想把博客搭建在自己的服务器上，我们应该如何去配置 Travis ，让其在部署的时候，同时部署到 gh-pages 和自己的服务器。再如目前博客是没有评论功能的，如何去添加评论功能。又如或许我们可以在打包代码前先检测下代码格式是否正确等等。</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo 官方文档</a><br><a href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html" target="_blank" rel="noopener">持续集成服务 Travis CI 教程</a><br><a href="http://www.yanglangjing.com/2018/08/28/travis_ci_auto_deploy_hexo_to_vps/" target="_blank" rel="noopener">Travis CI 持续部署Hexo博客到GitHub Page和VPS服务器</a><br><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html" target="_blank" rel="noopener">搭建一个免费的，无限流量的Blog—-github Pages和Jekyll入门</a></p>
-
+<div id="gitalk-container"></div>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cssie.github.io/cssieblog/2019/02/21/aotudeploy/" data-id="cjsenm0j90007cdskxczr5po7" class="article-share-link">Share</a>
+      <a data-url="https://cssie.github.io/cssieblog/2019/02/22/aotudeploy/" data-id="cjsfqilyh0007ciseqox0v5y9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/cssieblog/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/cssieblog/tags/自动化构建/">自动化构建</a></li></ul>
@@ -159,7 +161,7 @@
     
 <nav id="article-nav">
   
-    <a href="/cssieblog/2019/02/21/first/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/cssieblog/2019/02/22/first/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -173,7 +175,6 @@
 
   
 </article>
-
 </section>
         
           <aside id="sidebar">
@@ -224,11 +225,11 @@
       <ul>
         
           <li>
-            <a href="/cssieblog/2019/02/21/first/">我的第一篇博客</a>
+            <a href="/cssieblog/2019/02/22/first/">我的第一篇博客</a>
           </li>
         
           <li>
-            <a href="/cssieblog/2019/02/21/aotudeploy/">一个简易的前端自动化构建例子</a>
+            <a href="/cssieblog/2019/02/22/aotudeploy/">一个简易的前端自动化构建例子</a>
           </li>
         
       </ul>
@@ -259,7 +260,7 @@
     
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
   <link rel="stylesheet" href="/cssieblog/fancybox/jquery.fancybox.css">
   <script src="/cssieblog/fancybox/jquery.fancybox.pack.js"></script>

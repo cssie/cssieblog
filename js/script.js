@@ -134,4 +134,16 @@
 
     $container.removeClass('mobile-nav-on');
   });
+
+  //评论区
+  var gitalk = new Gitalk({
+    clientID: 'a17f0b1a377864116de9',
+    clientSecret: '6f7a55d93a3d1d25b4ed2de45b43b225e2e8246d',
+    repo: 'https://github.com/cssie/cssieblog.git',
+    owner: 'cssie',
+    admin: ['cssie'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
 })(jQuery);
