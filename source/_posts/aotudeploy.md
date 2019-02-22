@@ -9,6 +9,8 @@ tags: [前端,自动化构建]        #tag，为文章添加标签，方便搜�
 
 前阵子一直在赶项目，写需求，沉淀的东西大多是跟业务相关。团队写需求时一般使用 athena + gitlab CI 自动化生成模板，自动化检测代码格式，自动化打包和自动化部署到服务器，全自动一条龙服务。这对于之前都是单枪匹马的我来说，是套极具诱惑力的流程工具。趁着现在没什么需求，我便借着搭建博客的例子来学习如何搭建简易版的自动化构建工具。同时搭建好的博客也更督促了自己 2019 年多点沉淀，多点输出，多发博客。
 
+<!-- more -->
+
 ## 从哪里入手
 
 作为一个简单的示例，示例所要实现的核心功能是 -- 当把代码 push 到 github 远程仓库时，自动打包代码并将部署到服务器生成博客。
@@ -181,3 +183,5 @@ hexo d / hexo deploy
 [持续集成服务 Travis CI 教程](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)
 [Travis CI 持续部署Hexo博客到GitHub Page和VPS服务器](http://www.yanglangjing.com/2018/08/28/travis_ci_auto_deploy_hexo_to_vps/)
 [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+
+<div id="gitalk-container"></div>
